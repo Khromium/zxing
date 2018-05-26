@@ -38,6 +38,14 @@ public final class DecoderResult {
   private final int structuredAppendParity;
   private final int structuredAppendSequenceNumber;
 
+  private int maskIndex;
+  public int getMaskIndex() {
+    return maskIndex;
+  }
+  public void setMaskIndex(int index) {
+    maskIndex = index;
+  }
+
   public DecoderResult(byte[] rawBytes,
                        String text,
                        List<byte[]> byteSegments,
@@ -58,6 +66,7 @@ public final class DecoderResult {
     this.ecLevel = ecLevel;
     this.structuredAppendParity = saParity;
     this.structuredAppendSequenceNumber = saSequence;
+    this.maskIndex = -1;
   }
 
   /**

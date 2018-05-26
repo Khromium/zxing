@@ -216,6 +216,14 @@ final class BitMatrixParser {
     dataMask.unmaskBitMatrix(bitMatrix, dimension);
   }
 
+  public int getMaskIndex() {
+    if (parsedFormatInfo == null) {
+      return -1;
+    }
+    return parsedFormatInfo.getDataMask();
+  }
+
+
   /**
    * Prepare the parser for a mirrored operation.
    * This flag has effect only on the {@link #readFormatInformation()} and the

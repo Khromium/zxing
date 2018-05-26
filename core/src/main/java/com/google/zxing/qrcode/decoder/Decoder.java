@@ -113,6 +113,9 @@ public final class Decoder {
 
       DecoderResult result = decode(parser, hints);
 
+      // Set Mask Index
+      result.setMaskIndex(parser.getMaskIndex());
+
       // Success! Notify the caller that the code was mirrored.
       result.setOther(new QRCodeDecoderMetaData(true));
 
@@ -156,7 +159,9 @@ public final class Decoder {
     }
 
     // Decode the contents of that stream of bytes
-    return DecodedBitStreamParser.decode(resultBytes, version, ecLevel, hints);
+    DecoderResult res = DecodedBitStreamParser.decode(resultBytes, version, ecLevel, hints);
+    res.setMaskIndex(parser.getMaskIndex());
+    return res;
   }
 
   /**

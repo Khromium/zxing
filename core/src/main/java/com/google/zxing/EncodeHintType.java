@@ -107,4 +107,10 @@ public enum EncodeHintType {
    * {@link String } value).
    */
   GS1_FORMAT,
+
+  /**
+   * Specifies if you set the number of Mask Index
+   * (Type {@link Integer}, or {@link String} representation of the integer value).
+   */
+  MASK_INDEX,
 }

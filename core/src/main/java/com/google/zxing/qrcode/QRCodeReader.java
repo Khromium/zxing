@@ -85,6 +85,8 @@ public class QRCodeReader implements Reader {
     }
 
     Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.QR_CODE);
+    result.setMaskIndex(decoderResult.getMaskIndex());
+    
     List<byte[]> byteSegments = decoderResult.getByteSegments();
     if (byteSegments != null) {
       result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
